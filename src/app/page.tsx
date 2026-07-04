@@ -4,9 +4,9 @@ import {
   ArrowRight,
   Calendar,
   MapPin,
-  Users,
-  Star,
-  Zap,
+  GraduationCap,
+  Theater,
+  Briefcase,
   ChevronRight,
 } from "lucide-react";
 import { ShowCard } from "@/components/shared/ShowCard";
@@ -30,7 +30,7 @@ const pathways = [
     description:
       "Débutant ou confirmé, nos cours hebdomadaires vous guident à travers l'art de l'improvisation théâtrale dans une ambiance bienveillante et créative.",
     cta: "Découvrir les cours",
-    icon: Star,
+    icon: GraduationCap,
     highlight: "Dès septembre",
   },
   {
@@ -40,7 +40,7 @@ const pathways = [
     description:
       "Tournois d'impro, spectacles pour enfants, festival de fin d'année… Des soirées uniques où chaque représentation est une première et une dernière.",
     cta: "Voir les spectacles",
-    icon: Zap,
+    icon: Theater,
     highlight: "Prochaines dates",
   },
   {
@@ -50,7 +50,7 @@ const pathways = [
     description:
       "Teambuilding, spectacles sur mesure, animation de débats et ateliers pour écoles. L'improvisation au service de votre organisation.",
     cta: "Nos services",
-    icon: Users,
+    icon: Briefcase,
     highlight: "Sur mesure",
   },
 ];
@@ -93,23 +93,23 @@ export default function HomePage() {
           <div className="animate-fade-up animate-fade-up-3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/cours"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all glow-amber-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-border bg-card/50 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-sm"
             >
-              <Star size={16} />
+              <GraduationCap size={16} />
               Cours d&apos;impro
             </Link>
             <Link
               href="/spectacles"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-border bg-card/50 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all glow-amber-sm"
             >
-              <Zap size={16} />
+              <Theater size={16} />
               Spectacles
             </Link>
             <Link
               href="/entreprises"
               className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-border bg-card/50 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-sm"
             >
-              <Users size={16} />
+              <Briefcase size={16} />
               Entreprises
             </Link>
           </div>
