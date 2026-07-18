@@ -33,7 +33,6 @@ export function ShowCard({ show, variant = "default", className }: ShowCardProps
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/0 to-transparent" />
         {show.isFeatured && (
           <div className="absolute top-3 left-3">
             <Badge className="bg-primary text-primary-foreground text-xs font-semibold">

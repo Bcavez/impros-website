@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Fragment, useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Fragment, useState, useEffect, useRef } from "react";
+import { Menu, X, Sun, Moon, Palette } from "lucide-react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { ACCENT_COLORS } from "@/lib/colors";
+import { useAccentColor } from "@/components/layout/ColorProvider";
 
 const navLinks = [
   { href: "/cours", label: "Cours" },
@@ -45,6 +47,78 @@ function ThemeToggle({ className }: { className?: string }) {
   );
 }
 
+function ColorPicker({ className }: { className?: string }) {
+  const { colorId, setColorId } = useAccentColor();
+  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
+
+  if (!mounted) return <div className={cn("w-9 h-9", className)} aria-hidden />;
+
+  return (
+    <div ref={ref} className={cn("relative", className)}>
+      <button
+        onClick={() => setOpen((v) => !v)}
+        aria-label="Choisir la couleur d'accent"
+        title="Couleur d'accent"
+        className={cn(
+          "w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200",
+          "border border-border hover:border-primary/50 hover:text-primary",
+          "text-muted-foreground",
+          open && "border-primary/50 text-primary"
+        )}
+      >
+        <Palette size={16} />
+      </button>
+
+      {open && (
+        <div className="absolute top-full right-0 mt-2 p-3 rounded-xl bg-card border border-border shadow-2xl shadow-black/40 z-50 min-w-[160px]">
+          <p className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2.5 px-0.5">
+            Couleur d&apos;accent
+          </p>
+          <div className="grid grid-cols-4 gap-2">
+            {ACCENT_COLORS.map((color) => {
+              const isActive = colorId === color.id;
+              return (
+                <button
+                  key={color.id}
+                  onClick={() => {
+                    setColorId(color.id);
+                    setOpen(false);
+                  }}
+                  title={color.label}
+                  aria-label={color.label}
+                  aria-pressed={isActive}
+                  className={cn(
+                    "w-7 h-7 rounded-full transition-all duration-150 hover:scale-110",
+                    isActive
+                      ? "ring-2 ring-offset-2 ring-offset-card ring-foreground scale-110"
+                      : "ring-1 ring-transparent hover:ring-foreground/20"
+                  )}
+                  style={{ background: `oklch(${color.oklch})` }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -75,7 +149,10 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors"
+              className={cn(
+                "font-heading font-bold text-xl md:text-2xl hover:text-primary transition-colors",
+                scrolled ? "text-foreground" : "text-white"
+              )}
             >
               impro<span className="text-primary">.be</span>
             </Link>
@@ -90,13 +167,18 @@ export function Header() {
                     "px-4 py-2 rounded-md text-sm font-medium transition-colors",
                     pathname === href || pathname.startsWith(href + "/")
                       ? "text-primary"
-                      : "text-foreground/80 hover:text-foreground"
+                      : scrolled
+                        ? "text-foreground/80 hover:text-foreground"
+                        : "text-white/80 hover:text-white"
                   )}
                 >
                   {label}
                 </Link>
               ))}
-              <ThemeToggle className="mx-2" />
+              <div className="flex items-center gap-1 mx-2">
+                <ColorPicker />
+                <ThemeToggle />
+              </div>
               <Link
                 href="/spectacles"
                 className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors glow-amber-sm"
@@ -105,11 +187,15 @@ export function Header() {
               </Link>
             </nav>
 
-            {/* Mobile: theme toggle + burger */}
-            <div className="md:hidden flex items-center gap-2">
+            {/* Mobile: color picker + theme toggle + burger */}
+            <div className="md:hidden flex items-center gap-1">
+              <ColorPicker />
               <ThemeToggle />
               <button
-                className="p-2 text-foreground hover:text-primary transition-colors"
+                className={cn(
+                "p-2 hover:text-primary transition-colors",
+                scrolled || open ? "text-foreground" : "text-white"
+              )}
                 onClick={() => setOpen(!open)}
                 aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
                 aria-expanded={open}

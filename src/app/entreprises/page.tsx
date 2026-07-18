@@ -141,7 +141,7 @@ export default function EntreprisesPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
                   +200 entreprises

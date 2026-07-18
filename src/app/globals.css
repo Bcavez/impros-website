@@ -76,9 +76,12 @@
   --sidebar-border: oklch(0.87 0.01 85);
   --sidebar-ring: oklch(0.68 0.165 72);
 
-  /* Spotlight intensity token */
+  /* Spotlight intensity tokens */
   --glow-primary-soft: oklch(0.68 0.165 72 / 7%);
   --glow-primary-subtle: oklch(0.68 0.165 72 / 5%);
+  --glow-primary-18: oklch(0.68 0.165 72 / 18%);
+  --glow-primary-20: oklch(0.68 0.165 72 / 20%);
+  --glow-primary-35: oklch(0.68 0.165 72 / 35%);
 }
 
 /* ─── Dark theme (cinematic stage) ───────────────────────────────────────── */
@@ -115,19 +118,22 @@
 
   --glow-primary-soft: oklch(0.76 0.158 72 / 12%);
   --glow-primary-subtle: oklch(0.76 0.158 72 / 8%);
+  --glow-primary-18: oklch(0.76 0.158 72 / 18%);
+  --glow-primary-20: oklch(0.76 0.158 72 / 20%);
+  --glow-primary-35: oklch(0.76 0.158 72 / 35%);
 }
 
 /* ─── Glow utilities ──────────────────────────────────────────────────────── */
 .glow-amber {
-  box-shadow: 0 0 60px oklch(0.76 0.158 72 / 20%), 0 0 120px oklch(0.76 0.158 72 / 8%);
+  box-shadow: 0 0 60px var(--glow-primary-20), 0 0 120px var(--glow-primary-subtle);
 }
 
 .glow-amber-sm {
-  box-shadow: 0 0 20px oklch(0.76 0.158 72 / 18%);
+  box-shadow: 0 0 20px var(--glow-primary-18);
 }
 
 .text-glow {
-  text-shadow: 0 0 40px oklch(0.76 0.158 72 / 35%);
+  text-shadow: 0 0 40px var(--glow-primary-35);
 }
 
 /* ─── Noise texture overlay ───────────────────────────────────────────────── */
@@ -160,13 +166,13 @@
 
 /* Glow only — for layering over photos */
 .spotlight-glow {
-  background: radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.76 0.158 72 / 18%) 0%, transparent 70%);
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, var(--glow-primary-18) 0%, transparent 70%);
 }
 
 /* ─── Gradient divider ────────────────────────────────────────────────────── */
 .divider-glow {
   height: 1px;
-  background: linear-gradient(90deg, transparent, oklch(0.76 0.158 72 / 35%), transparent);
+  background: linear-gradient(90deg, transparent, var(--glow-primary-35), transparent);
 }
 
 /* ─── Base layer ─────────────────────────────────────────────────────────── */

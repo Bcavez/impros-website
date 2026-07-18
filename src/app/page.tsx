@@ -75,7 +75,7 @@ export default function HomePage() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-background/65 via-background/20 to-background/90"
+          className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/20 to-black/85"
         />
         <div
           aria-hidden="true"
@@ -99,12 +99,12 @@ export default function HomePage() {
           </p>
 
           {/* Main heading */}
-          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-foreground leading-none tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
+          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white leading-none tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
             impro
             <span className="text-primary text-glow">.be</span>
           </h1>
 
-          <p className="animate-fade-up animate-fade-up-2 mt-6 max-w-2xl mx-auto text-xl sm:text-2xl text-foreground/90 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+          <p className="animate-fade-up animate-fade-up-2 mt-6 max-w-2xl mx-auto text-xl sm:text-2xl text-white/80 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             L&apos;art d&apos;inventer ensemble, en direct, sans filet.
           </p>
 
@@ -112,7 +112,7 @@ export default function HomePage() {
           <div className="animate-fade-up animate-fade-up-3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/cours"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/15 bg-card/85 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-md shadow-lg shadow-black/30"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/25 bg-white/10 text-white font-semibold text-base hover:border-white/50 hover:bg-white/20 transition-all backdrop-blur-md shadow-lg shadow-black/30"
             >
               <GraduationCap size={16} />
               Cours d&apos;impro
@@ -126,7 +126,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/entreprises"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/15 bg-card/85 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-md shadow-lg shadow-black/30"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/25 bg-white/10 text-white font-semibold text-base hover:border-white/50 hover:bg-white/20 transition-all backdrop-blur-md shadow-lg shadow-black/30"
             >
               <Briefcase size={16} />
               Entreprises
@@ -304,9 +304,9 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
-                <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
+                <p className="font-heading font-bold text-2xl text-white drop-shadow-md">
                   Votre équipe,
                   <br />
                   <span className="text-primary">sur scène.</span>

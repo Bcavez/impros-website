@@ -75,7 +75,7 @@ export default function InitiationPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 p-6">
                 <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
                   Un jour pour tout changer.
