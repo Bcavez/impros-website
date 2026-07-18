@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ShowFilterTabs, ShowGrid } from "@/components/shared/ShowFilterTabs";
+import { InstagramFeed } from "@/components/shared/InstagramFeed";
 import { shows } from "@/data/shows";
 
 export const metadata: Metadata = {
@@ -38,6 +39,9 @@ export default function SpectaclesPage() {
           </div>
         </div>
       </section>
+
+      {/* Instagram feed */}
+      <InstagramFeed />
     </>
   );
 }

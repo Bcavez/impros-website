@@ -6,6 +6,7 @@ import { Calendar, MapPin, Euro, Clock, ChevronRight, ArrowLeft } from "lucide-r
 import { Badge } from "@/components/ui/badge";
 import { WeezeventEmbed } from "@/components/shared/WeezeventEmbed";
 import { ShowCard } from "@/components/shared/ShowCard";
+import { InstagramFeed } from "@/components/shared/InstagramFeed";
 import { JsonLd, buildEventSchema } from "@/components/shared/JsonLd";
 import {
   showCategories,
@@ -240,6 +241,9 @@ export default async function ShowDetailPage({ params }: Props) {
           />
         </div>
       </section>
+
+      {/* Instagram feed */}
+      <InstagramFeed />
 
       {/* Related shows */}
       {relatedShows.length > 0 && (
