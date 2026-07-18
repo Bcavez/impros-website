@@ -140,26 +140,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── À l'affiche ──────────────────────────────────────────────────── */}
-      <section className="py-20 bg-card border-y border-border" aria-label="À l'affiche">
+      {/* ── Next initiation day ──────────────────────────────────────────── */}
+      <section className="py-20 bg-card border-y border-border" aria-label="Journée d'initiation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center mb-10">
-            <SectionHeading
-              eyebrow="À l'affiche"
-              title="Prochains rendez-vous"
-              description="Ne manquez pas nos prochains spectacles et la journée d'initiation."
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Upcoming shows */}
-            {upcomingShows.map((show) => (
-              <ShowCard key={show.slug} show={show} />
-            ))}
-          </div>
-
-          {/* Next initiation day banner */}
-          <div className="mt-8 p-5 sm:p-6 rounded-xl border border-primary/30 bg-primary/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="p-5 sm:p-6 rounded-xl border border-primary/30 bg-primary/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0">
                 <Calendar size={18} className="text-primary" />
@@ -175,14 +159,39 @@ export default function HomePage() {
                   <MapPin size={13} className="text-primary" />
                   {nextInitiation.venue}, {nextInitiation.city}
                 </div>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-xl">
+                  Découvrez l&apos;improvisation en douceur, sans pression, dans
+                  une ambiance bienveillante — la meilleure façon de savoir si
+                  l&apos;impro est faite pour vous.
+                </p>
               </div>
             </div>
             <Link
               href="/cours/initiation"
               className="flex items-center gap-2 shrink-0 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
             >
-              S&apos;inscrire <ArrowRight size={14} />
+              Plus d&apos;info <ArrowRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── À l'affiche ──────────────────────────────────────────────────── */}
+      <section className="py-20 bg-background" aria-label="À l'affiche">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center mb-10">
+            <SectionHeading
+              eyebrow="À l'affiche"
+              title="Prochains rendez-vous"
+              description="Ne manquez pas nos prochains spectacles."
+            />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Upcoming shows */}
+            {upcomingShows.map((show) => (
+              <ShowCard key={show.slug} show={show} />
+            ))}
           </div>
 
           <div className="mt-8 text-center">
