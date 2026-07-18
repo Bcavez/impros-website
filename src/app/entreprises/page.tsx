@@ -35,7 +35,7 @@ export default function EntreprisesPage() {
             <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
               Corporate & Écoles
             </p>
-            <h1 className="font-heading font-extrabold text-5xl sm:text-6xl lg:text-7xl text-foreground leading-none tracking-tight">
+            <h1 className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground leading-none tracking-tight">
               L&apos;impro au service
               <br />
               <span className="text-primary">de votre équipe</span>

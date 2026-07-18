@@ -99,7 +99,7 @@ export default function HomePage() {
           </p>
 
           {/* Main heading */}
-          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white leading-none tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
+          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-bold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-white leading-none tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
             impro
             <span className="text-primary text-glow">.be</span>
           </h1>

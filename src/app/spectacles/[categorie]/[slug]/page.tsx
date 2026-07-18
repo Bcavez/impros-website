@@ -126,7 +126,7 @@ export default async function ShowDetailPage({ params }: Props) {
                   </Badge>
                 )}
               </div>
-              <h1 className="font-heading font-extrabold text-4xl sm:text-5xl text-foreground leading-tight">
+              <h1 className="font-heading font-bold text-4xl sm:text-5xl text-foreground leading-tight">
                 {show.title}
               </h1>
               <p className="mt-3 text-xl text-primary font-medium italic">

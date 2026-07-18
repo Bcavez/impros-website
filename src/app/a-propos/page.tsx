@@ -58,7 +58,7 @@ export default function AProposPage() {
               <p className="text-primary font-semibold text-sm uppercase tracking-widest mb-4">
                 À propos
               </p>
-              <h1 className="font-heading font-extrabold text-5xl sm:text-6xl text-foreground leading-none tracking-tight">
+              <h1 className="font-heading font-bold text-5xl sm:text-6xl text-foreground leading-none tracking-tight">
                 La scène
                 <br />
                 <span className="text-primary">nous rassemble</span>
