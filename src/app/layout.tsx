@@ -3,6 +3,7 @@ import { Syne, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { JsonLd, organizationSchema } from "@/components/shared/JsonLd";
 
 const syne = Syne({
@@ -48,13 +49,16 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${syne.variable} ${outfit.variable} dark h-full antialiased`}
+      className={`${syne.variable} ${outfit.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        <JsonLd data={organizationSchema} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <JsonLd data={organizationSchema} />
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

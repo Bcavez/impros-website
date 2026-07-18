@@ -41,8 +41,48 @@
   --color-amber: var(--amber);
 }
 
-/* Dark cinematic stage theme — always dark */
+/* ─── Light theme (option 5 — default) ───────────────────────────────────── */
 :root {
+  /* Warm white — like a lit stage in daylight */
+  --background: oklch(0.985 0.004 85);
+  --foreground: oklch(0.11 0.014 85);
+  --card: oklch(0.97 0.006 85);
+  --card-foreground: oklch(0.11 0.014 85);
+  --popover: oklch(0.97 0.006 85);
+  --popover-foreground: oklch(0.11 0.014 85);
+
+  /* Amber accent — slightly darker for sufficient contrast on white */
+  --primary: oklch(0.68 0.165 72);
+  --primary-foreground: oklch(0.99 0 0);
+  --amber: oklch(0.68 0.165 72);
+
+  --secondary: oklch(0.93 0.008 85);
+  --secondary-foreground: oklch(0.22 0.012 85);
+  --muted: oklch(0.93 0.008 85);
+  --muted-foreground: oklch(0.47 0.012 85);
+  --accent: oklch(0.91 0.01 85);
+  --accent-foreground: oklch(0.11 0.014 85);
+  --destructive: oklch(0.58 0.22 25);
+  --border: oklch(0.87 0.01 85);
+  --input: oklch(0.90 0.008 85);
+  --ring: oklch(0.68 0.165 72);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.97 0.006 85);
+  --sidebar-foreground: oklch(0.11 0.014 85);
+  --sidebar-primary: oklch(0.68 0.165 72);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.91 0.01 85);
+  --sidebar-accent-foreground: oklch(0.11 0.014 85);
+  --sidebar-border: oklch(0.87 0.01 85);
+  --sidebar-ring: oklch(0.68 0.165 72);
+
+  /* Spotlight intensity token */
+  --glow-primary-soft: oklch(0.68 0.165 72 / 7%);
+  --glow-primary-subtle: oklch(0.68 0.165 72 / 5%);
+}
+
+/* ─── Dark theme (cinematic stage) ───────────────────────────────────────── */
+.dark {
   --background: oklch(0.07 0.009 280);
   --foreground: oklch(0.94 0.012 85);
   --card: oklch(0.11 0.01 275);
@@ -50,7 +90,6 @@
   --popover: oklch(0.11 0.01 275);
   --popover-foreground: oklch(0.94 0.012 85);
 
-  /* Warm amber spotlight — the brand accent */
   --primary: oklch(0.76 0.158 72);
   --primary-foreground: oklch(0.07 0.009 280);
   --amber: oklch(0.76 0.158 72);
@@ -65,7 +104,6 @@
   --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
   --ring: oklch(0.76 0.158 72);
-  --radius: 0.5rem;
   --sidebar: oklch(0.11 0.01 275);
   --sidebar-foreground: oklch(0.94 0.012 85);
   --sidebar-primary: oklch(0.76 0.158 72);
@@ -74,22 +112,25 @@
   --sidebar-accent-foreground: oklch(0.94 0.012 85);
   --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: oklch(0.76 0.158 72);
+
+  --glow-primary-soft: oklch(0.76 0.158 72 / 12%);
+  --glow-primary-subtle: oklch(0.76 0.158 72 / 8%);
 }
 
-/* Spotlight glow utilities */
+/* ─── Glow utilities ──────────────────────────────────────────────────────── */
 .glow-amber {
-  box-shadow: 0 0 60px oklch(0.76 0.158 72 / 25%), 0 0 120px oklch(0.76 0.158 72 / 10%);
+  box-shadow: 0 0 60px oklch(0.76 0.158 72 / 20%), 0 0 120px oklch(0.76 0.158 72 / 8%);
 }
 
 .glow-amber-sm {
-  box-shadow: 0 0 20px oklch(0.76 0.158 72 / 20%);
+  box-shadow: 0 0 20px oklch(0.76 0.158 72 / 18%);
 }
 
 .text-glow {
-  text-shadow: 0 0 40px oklch(0.76 0.158 72 / 40%);
+  text-shadow: 0 0 40px oklch(0.76 0.158 72 / 35%);
 }
 
-/* Noise texture overlay for cinematic depth */
+/* ─── Noise texture overlay ───────────────────────────────────────────────── */
 .noise {
   position: relative;
 }
@@ -99,34 +140,36 @@
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.035;
   border-radius: inherit;
 }
 
-/* Spotlight radial gradient backgrounds */
+/* ─── Spotlight background utilities ─────────────────────────────────────── */
+/* Uses var(--glow-primary-*) tokens so intensity adapts to light/dark.       */
 .spotlight-bg {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.76 0.158 72 / 12%) 0%, transparent 70%),
-    oklch(0.07 0.009 280);
+    radial-gradient(ellipse 60% 50% at 50% 0%, var(--glow-primary-soft) 0%, transparent 70%),
+    var(--background);
 }
 
 .spotlight-bg-subtle {
   background:
-    radial-gradient(ellipse 80% 40% at 50% -10%, oklch(0.76 0.158 72 / 8%) 0%, transparent 60%),
-    oklch(0.07 0.009 280);
+    radial-gradient(ellipse 80% 40% at 50% -10%, var(--glow-primary-subtle) 0%, transparent 60%),
+    var(--background);
 }
 
-/* Amber glow only, no solid fill — for layering on top of photos */
+/* Glow only — for layering over photos */
 .spotlight-glow {
   background: radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.76 0.158 72 / 18%) 0%, transparent 70%);
 }
 
-/* Gradient divider */
+/* ─── Gradient divider ────────────────────────────────────────────────────── */
 .divider-glow {
   height: 1px;
-  background: linear-gradient(90deg, transparent, oklch(0.76 0.158 72 / 40%), transparent);
+  background: linear-gradient(90deg, transparent, oklch(0.76 0.158 72 / 35%), transparent);
 }
 
+/* ─── Base layer ─────────────────────────────────────────────────────────── */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -134,6 +177,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.25s ease, color 0.15s ease;
   }
   html {
     @apply font-sans;
@@ -145,7 +189,7 @@
   }
 }
 
-/* Fade-in animation for page sections */
+/* ─── Fade-up animation ───────────────────────────────────────────────────── */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -173,5 +217,9 @@
   .animate-fade-up-3,
   .animate-fade-up-4 {
     animation: none;
+  }
+
+  body {
+    transition: none;
   }
 }
