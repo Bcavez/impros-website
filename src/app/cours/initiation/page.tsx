@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Calendar, MapPin, Clock, Euro, Users, Check } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { SubscriptionForm } from "@/components/shared/SubscriptionForm";
@@ -67,17 +68,18 @@ export default function InitiationPage() {
 
             {/* Visual */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-card border border-border">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/25 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-                <div>
-                  <div className="text-7xl mb-4">🎭</div>
-                  <p className="font-heading font-bold text-2xl text-foreground">
-                    Un jour pour tout changer.
-                  </p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Image d&apos;illustration — à remplacer par une photo d&apos;atelier.
-                  </p>
-                </div>
+              <Image
+                src="/images/cours/initiation.jpg"
+                alt="Groupe de débutants lors d'un atelier d'initiation à l'impro"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
+                  Un jour pour tout changer.
+                </p>
               </div>
             </div>
           </div>

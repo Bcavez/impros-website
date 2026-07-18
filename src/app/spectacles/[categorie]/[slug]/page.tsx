@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, Euro, Clock, ChevronRight, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -203,22 +204,17 @@ export default async function ShowDetailPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Image placeholder */}
+      {/* Image */}
       <section className="bg-card border-y border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="rounded-xl overflow-hidden aspect-video bg-accent border border-border relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-            <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-              <div>
-                <div className="text-7xl mb-3">🎭</div>
-                <p className="font-heading font-bold text-2xl text-foreground">
-                  {show.title}
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Affiche / photo du spectacle à ajouter ici.
-                </p>
-              </div>
-            </div>
+            <Image
+              src={show.image}
+              alt={show.title}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>

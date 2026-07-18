@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -70,16 +71,14 @@ export default function AProposPage() {
               </p>
             </div>
             <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-card border border-border relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/25 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-                <div>
-                  <div className="text-7xl mb-3">🎭</div>
-                  <p className="font-heading font-bold text-2xl text-foreground">impro.be</p>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Photo de troupe à ajouter ici.
-                  </p>
-                </div>
-              </div>
+              <Image
+                src="/images/about/troupe.jpg"
+                alt="La troupe impro.be réunie sur scène"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </div>
           </div>
         </div>

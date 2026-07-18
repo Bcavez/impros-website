@@ -44,7 +44,7 @@ export function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors"
+              className="font-heading font-bold text-xl md:text-2xl text-foreground hover:text-primary transition-colors drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]"
             >
               impro<span className="text-primary">.be</span>
             </Link>
@@ -56,10 +56,10 @@ export function Header() {
                   key={href}
                   href={href}
                   className={cn(
-                    "px-4 py-2 rounded-md text-sm font-medium transition-colors",
+                    "px-4 py-2 rounded-md text-sm font-medium transition-colors drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]",
                     pathname === href || pathname.startsWith(href + "/")
                       ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                      : "text-foreground/85 hover:text-foreground"
                   )}
                 >
                   {label}
@@ -67,7 +67,7 @@ export function Header() {
               ))}
               <Link
                 href="/spectacles"
-                className="ml-4 px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors glow-amber-sm"
+                className="ml-4 px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors glow-amber-sm shadow-lg shadow-black/30"
               >
                 Réserver
               </Link>
@@ -75,7 +75,7 @@ export function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+              className="md:hidden p-2 text-foreground hover:text-primary transition-colors drop-shadow-[0_1px_8px_rgba(0,0,0,0.85)]"
               onClick={() => setOpen(!open)}
               aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={open}

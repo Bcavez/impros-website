@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -23,17 +24,16 @@ export function ShowCard({ show, variant = "default", className }: ShowCardProps
         className
       )}
     >
-      {/* Image placeholder */}
+      {/* Image */}
       <div className="relative aspect-video bg-accent overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
-            <div className="w-16 h-16 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center mx-auto mb-2">
-              <span className="text-2xl">🎭</span>
-            </div>
-            <p className="text-xs text-muted-foreground">Photo à venir</p>
-          </div>
-        </div>
+        <Image
+          src={show.image}
+          alt={show.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/0 to-transparent" />
         {show.isFeatured && (
           <div className="absolute top-3 left-3">
             <Badge className="bg-primary text-primary-foreground text-xs font-semibold">

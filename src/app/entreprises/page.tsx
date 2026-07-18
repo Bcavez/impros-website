@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Check } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -133,19 +134,20 @@ export default function EntreprisesPage() {
               </ul>
             </div>
             <div className="rounded-2xl overflow-hidden aspect-[4/3] bg-accent border border-border relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-                <div>
-                  <div className="text-6xl mb-4">🏆</div>
-                  <p className="font-heading font-bold text-2xl text-foreground">
-                    +200 entreprises
-                    <br />
-                    <span className="text-primary">nous font confiance</span>
-                  </p>
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    Illustration à remplacer par une photo d&apos;atelier.
-                  </p>
-                </div>
+              <Image
+                src="/images/corporate/spectacle.jpg"
+                alt="Spectacle d'improvisation sur mesure devant un public d'entreprise"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
+                  +200 entreprises
+                  <br />
+                  <span className="text-primary">nous font confiance</span>
+                </p>
               </div>
             </div>
           </div>

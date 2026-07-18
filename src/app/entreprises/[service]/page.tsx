@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowRight, Users, Clock, ChevronRight, ArrowLeft } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -99,14 +100,14 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
             {/* Visual */}
             <div className="lg:col-span-2 rounded-2xl overflow-hidden aspect-[4/3] bg-card border border-border relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/25 to-transparent" />
-              <div className="absolute inset-0 flex items-center justify-center text-center px-8">
-                <div>
-                  <div className="text-7xl mb-3">{serviceEmoji(svc.slug)}</div>
-                  <p className="font-heading font-bold text-xl text-foreground">{svc.title}</p>
-                  <p className="mt-2 text-xs text-muted-foreground">Photo à ajouter.</p>
-                </div>
-              </div>
+              <Image
+                src={svc.image}
+                alt={svc.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </div>
           </div>
         </div>

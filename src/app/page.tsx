@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -62,7 +63,25 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden spotlight-bg noise">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden noise">
+        {/* Background photo */}
+        <Image
+          src="/images/hero/hero.jpg"
+          alt="Improvisateur sur scène, éclairé par les spots de la salle"
+          fill
+          preload
+          sizes="100vw"
+          className="object-cover object-[center_30%]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-background/65 via-background/20 to-background/90"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 spotlight-glow"
+        />
+
         {/* Decorative spotlight beams */}
         <div
           aria-hidden="true"
@@ -75,17 +94,17 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
           {/* Eyebrow */}
-          <p className="animate-fade-up text-primary font-semibold text-sm uppercase tracking-widest mb-6">
+          <p className="animate-fade-up text-primary font-semibold text-sm uppercase tracking-widest mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             Bruxelles · Improvisation Théâtrale
           </p>
 
           {/* Main heading */}
-          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-foreground leading-none tracking-tight">
+          <h1 className="animate-fade-up animate-fade-up-1 font-heading font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl text-foreground leading-none tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
             impro
             <span className="text-primary text-glow">.be</span>
           </h1>
 
-          <p className="animate-fade-up animate-fade-up-2 mt-6 max-w-2xl mx-auto text-xl sm:text-2xl text-muted-foreground leading-relaxed">
+          <p className="animate-fade-up animate-fade-up-2 mt-6 max-w-2xl mx-auto text-xl sm:text-2xl text-foreground/90 leading-relaxed drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             L&apos;art d&apos;inventer ensemble, en direct, sans filet.
           </p>
 
@@ -93,21 +112,21 @@ export default function HomePage() {
           <div className="animate-fade-up animate-fade-up-3 mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/cours"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-border bg-card/50 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/15 bg-card/85 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-md shadow-lg shadow-black/30"
             >
               <GraduationCap size={16} />
               Cours d&apos;impro
             </Link>
             <Link
               href="/spectacles"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all glow-amber-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-primary text-primary-foreground font-semibold text-base hover:bg-primary/90 transition-all glow-amber-sm shadow-lg shadow-black/30"
             >
               <Theater size={16} />
               Spectacles
             </Link>
             <Link
               href="/entreprises"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-border bg-card/50 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 rounded-full border border-white/15 bg-card/85 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-card transition-all backdrop-blur-md shadow-lg shadow-black/30"
             >
               <Briefcase size={16} />
               Entreprises
@@ -276,18 +295,21 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual placeholder */}
+            {/* Visual */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-accent border border-border">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8">
-                <div className="text-6xl mb-4">🏢</div>
-                <p className="font-heading font-bold text-2xl text-foreground">
+              <Image
+                src="/images/corporate/teambuilding.jpg"
+                alt="Atelier de teambuilding par improvisation en entreprise"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-6">
+                <p className="font-heading font-bold text-2xl text-foreground drop-shadow-md">
                   Votre équipe,
                   <br />
                   <span className="text-primary">sur scène.</span>
-                </p>
-                <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-                  Photo de référence — à remplacer par une photo d&apos;atelier en entreprise.
                 </p>
               </div>
             </div>

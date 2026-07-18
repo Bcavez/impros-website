@@ -116,6 +116,11 @@
     oklch(0.07 0.009 280);
 }
 
+/* Amber glow only, no solid fill — for layering on top of photos */
+.spotlight-glow {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, oklch(0.76 0.158 72 / 18%) 0%, transparent 70%);
+}
+
 /* Gradient divider */
 .divider-glow {
   height: 1px;
